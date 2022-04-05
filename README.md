@@ -239,10 +239,56 @@ plot_clusters(points_scaled, labels, optimal_clusters.cluster_centers_)
 ```
 
 ### 7 - Linear Regression
+![linearregression-exc1.png](images/linearregression-exc1.png)
+[linearregression-exec1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/linearregression-exec1.py)
+
+```
+my_linear_model = None
+my_linear_model = linear_model.LinearRegression()
+my_linear_model.fit(customer_annual_income_usd, avg_monthly_spending_usd)
+predicted_values = my_linear_model.predict(customer_annual_income_usd)
+plt.scatter(customer_annual_income_usd, avg_monthly_spending_usd, color="b")
+plt.plot(customer_annual_income_usd, predicted_values, color="r")
+plt.show()
+r_squared = my_linear_model.score(customer_annual_income_usd, avg_monthly_spending_usd)
+```
 
 ### 8 - Logistic Regression
 
+![logisticregression-exc1.png](images/logisticregression-exc1.png)
+[logisticregression-exec1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/logisticregression-exec1.py)
+
+```
+df = pd.read_csv("data/credit_card_exercise.csv")
+logistic = LogisticRegression(solver='liblinear', random_state=0)
+x = np.array(df['Months in Good Standing'])
+newx = x[:,np.newaxis]
+y = np.array(df['Defaulted? (0/1 = no/yes)'])
+logistic.fit(newx, y)
+predicted_probs = logistic.predict_proba(months_in_good_standing.reshape(-1,1))
+plt.scatter(months_in_good_standing, probabilities_by_months, label="actual")
+plt.scatter(months_in_good_standing, predicted_probs[:,1], label="predicted")
+plt.legend()
+plt.show()
+```
+
 ### 9 - Metrics: EValuating Model Accuracy
+![evaulatingmodelAccuracy-exc1.png](images/evaulatingmodelAccuracy-exc1.png)
+[evalmodelAccuracy-exec1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/evalmodelAccuracy-exec1.py)
+
+```
+df = pd.read_csv("data/credit_card_exercise.csv")
+logistic = LogisticRegression(solver='liblinear', random_state=0)
+X = df.values[:, 0].reshape(-1,1)
+y = df.values[:, 1]
+logistic.fit(X, y)
+predicted_probs = logistic.predict_proba(X)
+fps, tps, thresh = roc_curve(y, predicted_probs[:,1])
+auc = metrics.auc(fps, tps)
+print(auc)
+plt.plot(fps,tps)
+plt.show()
+```
 
 </details>
 
