@@ -1,0 +1,5 @@
+plt.scatter(age_yrs, annual_income_usd, marker="p", c="g")
+plt.xlabel("Age (yrs)")
+plt.ylabel("Annual Income (USD)")
+plt.title("Annual Income vs. Age")
+plt.show()

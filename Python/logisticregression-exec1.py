@@ -1,0 +1,11 @@
+df = pd.read_csv("data/credit_card_exercise.csv")
+logistic = LogisticRegression(solver='liblinear', random_state=0)
+x = np.array(df['Months in Good Standing'])
+newx = x[:,np.newaxis]
+y = np.array(df['Defaulted? (0/1 = no/yes)'])
+logistic.fit(newx, y)
+predicted_probs = logistic.predict_proba(months_in_good_standing.reshape(-1,1))
+plt.scatter(months_in_good_standing, probabilities_by_months, label="actual")
+plt.scatter(months_in_good_standing, predicted_probs[:,1], label="predicted")
+plt.legend()
+plt.show()

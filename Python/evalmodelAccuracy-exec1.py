@@ -1,0 +1,11 @@
+df = pd.read_csv("data/credit_card_exercise.csv")
+logistic = LogisticRegression(solver='liblinear', random_state=0)
+X = df.values[:, 0].reshape(-1,1)
+y = df.values[:, 1]
+logistic.fit(X, y)
+predicted_probs = logistic.predict_proba(X)
+fps, tps, thresh = roc_curve(y, predicted_probs[:,1])
+auc = metrics.auc(fps, tps)
+print(auc)
+plt.plot(fps,tps)
+plt.show()

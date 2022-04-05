@@ -1,0 +1,29 @@
+remove_randomness()
+model_larger = keras.Sequential([
+    keras.layers.Dense(
+        units=100,
+        input_shape=(X_train.shape[1],),
+        activation="relu",
+        name="hidden"
+    ),
+    keras.layers.Dense(
+        units=2,
+        activation="softmax",
+        name="output"
+    )
+])
+model_larger.compile(
+    loss="categorical_crossentropy",
+    optimizer="sgd",
+    metrics=["accuracy"]
+)
+model_larger.fit(
+    X_train_scaled,
+    keras.utils.to_categorical(y_train),
+    epochs=7
+)
+evaluation_result = model_larger.evaluate(
+    X_test_scaled,
+    keras.utils.to_categorical(y_test),
+)
+print(evaluation_result)
