@@ -163,6 +163,18 @@ def shaped_range(start, end, n_rows, n_cols):
 ```
 
 ### 4 - Principal Component Analysis
+![pca-exc1.png](images/pca-exc1.png)
+[pca-exec1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/pca-exec1.py)
+
+```
+stock_pca = PCA()
+stock_pca.fit(stock_df)
+stock_n_important_components = 3
+stock_important_components = stock_pca.components_[0:stock_n_important_components,:]
+stock_final_components = varimax_rotation(stock_important_components)
+stock_final_components_df = pd.DataFrame(stock_final_components, columns=stock_df.columns)
+stock_final_components_df
+```
 
 ### 5 - Multi Dimension SCaling
 
