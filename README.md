@@ -41,9 +41,10 @@ s
 ### 9 - Boolean Logic
 
 
-[bool-exercise1.py](https://github.com/mremini/gemba23-marketing/Python/bool-exercise1.py)
+[bool-exercise1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/bool-exercise1.py)
 
-    ![bool-exercise1.py(images/bool-exc1.png)
+![bool-exercise1.py](images/bool-exc1.png)
+
 ```
 def get_loyalty_program(customer_spending_usd):
     status = "no status"
@@ -55,6 +56,22 @@ def get_loyalty_program(customer_spending_usd):
         status = "no status"
     return status
 ```
+
+[bool-exercise1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/bool-exercise2.py)
+
+![bool-exercise2py](images/bool-exc2.png)
+
+```
+def should_get_hired(interview_one_score, interview_two_score):
+    if interview_one_score > 4 and interview_two_score > 4:
+        action = 'hire'
+    elif interview_one_score > 4 or interview_two_score > 4:
+        action = 'interview again'
+    else:
+        action = 'nope'
+        return action
+```
+
 </details>
 
 ## Intermediate level
