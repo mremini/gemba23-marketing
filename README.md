@@ -40,7 +40,6 @@ s
 
 ### 9 - Boolean Logic
 
-</details>
 
 [bool-exercise1.py](https://github.com/mremini/gemba23-marketing/Python/bool-exercise1.py
 
@@ -56,6 +55,7 @@ def get_loyalty_program(customer_spending_usd):
         status = "no status"
     return status
 ```
+</details>
 
 ## Intermediate level
 
