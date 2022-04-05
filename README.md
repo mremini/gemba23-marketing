@@ -9,7 +9,7 @@ GEMBA 23 Marketing Python Solutions
 ### 6 - Lists
 
 ### 7 - Loops
-[loops-exercise1.py](https://github.com/mremini/gemba23-marketing/Python/loops-exercise1.py)
+[loops-exercise1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/loops-exercise1.py)
 
 ```
 def length_of_longest_word(word_list):
@@ -21,7 +21,7 @@ def length_of_longest_word(word_list):
 
 ```
 
-[loops-exercise2.py](https://github.com/mremini/gemba23-marketing/Python/loops-exercise2.py
+[loops-exercise2.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/loops-exercise2.py)
 
 ```
 def sum_leq(num):
@@ -41,7 +41,7 @@ s
 ### 9 - Boolean Logic
 
 
-[bool-exercise1.py](https://github.com/mremini/gemba23-marketing/Python/bool-exercise1.py
+[bool-exercise1.py](https://github.com/mremini/gemba23-marketing/Python/bool-exercise1.py)
 
     ![bool-exercise1.py(images/bool-exc1.png)
 ```
