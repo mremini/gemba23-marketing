@@ -139,6 +139,28 @@ plt.show()
 ```
 
 ### 3 - The numpy Module
+![numpy-exc1.png](images/numpy-exc1.png)
+[numpy-exercise1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/numpy-exercise1.py)
+
+```
+def count_zeros(my_array):
+    nbr_zero=0
+    for row in my_array:
+        for cell in row:
+            if cell==0:
+               nbr_zero=nbr_zero+1
+    return nbr_zero
+```
+
+![numpy-exc2.png](images/numpy-exc2.png)
+[numpy-exercise2.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/numpy-exercise2.py)
+
+```
+def shaped_range(start, end, n_rows, n_cols):
+        range_arr = np.arange(start, end, 1)
+        reshaped_arr = range_arr.reshape(n_rows, n_cols)
+        return reshaped_arr
+```
 
 ### 4 - Principal Component Analysis
 
