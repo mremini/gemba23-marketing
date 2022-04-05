@@ -1,2 +1,2 @@
-df['sales_q1_in_thousands'] = df["Sales Q1 2019 (USD)"] / 1000
-df.head()
+sales_q2=df.get('Sales Q2 2019 (USD)')
+sales_q2

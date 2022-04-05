@@ -101,19 +101,19 @@ def should_get_hired(interview_one_score, interview_two_score):
 ![loaddata-exc2](images/loaddata-exc2.png)
 
 ```
-def should_get_hired(interview_one_score, interview_two_score):
-    if interview_one_score > 4 and interview_two_score > 4:
-        action = 'hire'
-    elif interview_one_score > 4 or interview_two_score > 4:
-        action = 'interview again'
-    else:
-        action = 'nope'
-        return action
+sales_q2=df.get('Sales Q2 2019 (USD)')
+sales_q2
+
 ```
 
-[loaddata-exercise3.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/loaddata-exercise2.py)
+[loaddata-exercise3.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/loaddata-exercise3.py)
 
 ![loaddata-exc3](images/loaddata-exc3.png)
+```
+df['sales_q1_in_thousands'] = df["Sales Q1 2019 (USD)"] / 1000
+df.head()
+
+```
 
 
 ### 2 - Matlolib
