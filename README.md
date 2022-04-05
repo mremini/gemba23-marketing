@@ -177,8 +177,66 @@ stock_final_components_df
 ```
 
 ### 5 - Multi Dimension SCaling
+![mds-exc1.png](images/mds-exc1.png)
+[MDS-exec1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/MDS-exec1.py)
 
-### 6 - CLuster abalysis
+```
+cookies_models = [
+    'Prince',
+    'Oreo',
+    'Choco Bueno',
+    'Petit Ecolier',
+    'Mikado',
+    'Granola',
+    'Kinder',
+    'Sables'
+]
+my_dissimilarity_matrix = np.array([
+    [0, 5, 8, 4, 5, 3, 8, 5],
+    [5, 0, 1, 5, 4, 7, 8, 3],
+    [8, 1, 0, 4, 4, 3, 3, 4],
+    [4, 5, 4, 0, 2, 5, 9, 8],
+    [5, 4, 4, 2, 0, 5, 3, 7],
+    [3, 7, 3, 5, 5, 0, 1, 9],
+    [8, 8, 3, 9, 3, 1, 0, 8],
+    [5, 3, 4, 8, 7, 9, 8, 0]
+])
+mds = MDS(dissimilarity="precomputed",random_state=63)
+my_perceptual_map = mds.fit_transform(my_dissimilarity_matrix)
+x = my_perceptual_map[:,0]
+y = my_perceptual_map[:,1]
+plt.scatter(x, y)
+for i in range(0, len(cookies_models)):
+    txt = cookies_models[i]
+    plt.annotate(txt, [x[i], y[i]])
+plt.show()
+```
+
+### 6 - Cluster analysis
+![clusteranalysis-exc1.png](images/clusteranalysis-exc1.png)
+[clusteranalysis-exec1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/clusteranalysis-exec1.py)
+
+```
+import numpy as np
+inertia_values = []
+all_k = np.arange(1,7)
+for k in all_k:
+    kmeans = KMeans(n_clusters=k, random_state=0)
+    kmeans.fit(points_scaled)
+    inertia_values.append(kmeans.inertia_)
+plt.plot(all_k, inertia_values)
+plt.show()
+optimal_k = 4
+```
+
+![clusteranalysis-exc2.png](images/clusteranalysis-exc2.png)
+[clusteranalysis-exec2.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/clusteranalysis-exec2.py)
+
+```
+optimal_clusters = KMeans(n_clusters=4, random_state=0)
+labels = optimal_clusters.fit_predict(points_scaled)
+plot_clusters(points_scaled, labels, optimal_clusters.cluster_centers_)
+```
 
 ### 7 - Linear Regression
 
