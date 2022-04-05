@@ -117,6 +117,26 @@ df.head()
 
 
 ### 2 - Matlolib
+![Visualizingdata-exec1](images/Visualizingdata-exec1.png)
+[visualisedata-exercise1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/visualisedata-exercise1.py)
+
+```
+annual_income_usd = [100000, 130000, 40000, 50000, 120000, 48000, 50000,78000, 150000]
+age_yrs = [60, 24, 32, 36, 28, 36, 32, 60, 68]
+plt.scatter(age_yrs, annual_income_usd, marker="p", c="g")
+plt.xlabel("Age (yrs)")
+plt.ylabel("Annual Income (USD)")
+plt.title("Annual Income vs. Age")
+
+```
+
+[visualisedata-exercise2.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/visualisedata-exercise2.py)
+
+```
+churn_df = pd.read_csv("data/employee-churn.csv")
+plt.scatter(churn_df['gpa'], churn_df['aptitude.score'], marker="*")
+plt.show()
+```
 
 ### 3 - The numpy Module
 
