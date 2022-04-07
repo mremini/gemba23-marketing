@@ -297,16 +297,118 @@ plt.show()
 
 <details>
 
-### 1 - Neural Netwroks
 
 ### 2 - Building and Training Neural Networks
+![building-and-training-neural-exec1.png](images/building-and-training-neural-exec1.png)
+[building-and-training-neural-exec1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/building-and-training-neural-exec1.py)
+
+```
+my_model = keras.Sequential([
+    keras.layers.Dense(
+        units=5,
+        name="hidden-layer-one",
+        activation="tanh",
+        input_shape=(2,)
+    ),
+    keras.layers.Dense(
+        units=3,
+        name="output-layer-one",
+        activation="softmax"
+    )
+])
+```
 
 ### 3 - Training Neural Networks
+![training-neural-networks.png](images/training-neural-networks.png)
+[training-neural-exec1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/training-neural-exec1.py)
+
+```
+remove_randomness()
+my_model = new_example_model()
+my_optimizer = keras.optimizers.Adam(learning_rate=0.02)
+my_model.compile(
+    optimizer=my_optimizer,
+    loss="mean_absolute_error"
+)
+my_model_tracker = Tracker("my-model")
+my_model.fit(x,y, epochs=25, callbacks=[my_model_tracker.get_callback()])
+my_model_tracker.visualize_progress(m_true = m, b_true = b)
+```
 
 ### 4 - Overfitting
+![overfitting.png](images/overfitting.png)
+[overfitting-exc1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/overfitting-exc1.py)
+
+```
+remove_randomness()
+my_model = keras.Sequential(
+    [
+        keras.layers.Dense(
+            units=1,
+			name="output",
+            kernel_initializer=keras.initializers.constant(2)
+        )
+    ]
+)
+my_model.compile(
+    optimizer=keras.optimizers.Adam(lr=0.01),
+    loss="mean_squared_error"
+)
+my_model.fit(x_demo_train, y_demo_train, epochs=50)
+y_pred_my_model = my_model.predict(x_demo_test)
+plt.scatter(x_demo_test, y_demo_test)
+plt.plot(x_demo_test, y_pred_my_model)
+plt.show()
+```
+
 
 ### 5 - Applying Neural Networks to Business Problems
+![applyingneaural-tobusiness.png](images/applyingneaural-tobusiness.png)
+[applyingneural-to-business-exc1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/applyingneural-to-business-exc1.py)
+
+```
+remove_randomness()
+model_larger = keras.Sequential([
+    keras.layers.Dense(
+        units=100,
+        input_shape=(X_train.shape[1],),
+        activation="relu",
+        name="hidden"
+    ),
+    keras.layers.Dense(
+        units=2,
+        activation="softmax",
+        name="output"
+    )
+])
+model_larger.compile(
+    loss="categorical_crossentropy",
+    optimizer="sgd",
+    metrics=["accuracy"]
+)
+model_larger.fit(
+    X_train_scaled,
+    keras.utils.to_categorical(y_train),
+    epochs=7
+)
+evaluation_result = model_larger.evaluate(
+    X_test_scaled,
+    keras.utils.to_categorical(y_test),
+)
+print(evaluation_result)
+```
 
 ### 6 - Transfer Learning - Standing on the shoulders of Giants
+![standing-shoulder-giant.png](images/standing-shoulder-giant.png)
+[standing-on-theshouldersofGiant-exc1.py](https://github.com/mremini/gemba23-marketing/blob/main/Python/standing-on-theshouldersofGiant-exc1.py)
+
+```
+X_test_processed = images_to_rgb_and_resized(X_test, (96,96))
+evaluation_result = model_combined.evaluate(
+    X_test_processed,
+    keras.utils.to_categorical(y_test)
+)
+print(evaluation_result)
+```
 
 </details>
